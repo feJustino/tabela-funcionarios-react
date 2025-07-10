@@ -48,25 +48,25 @@ git clone <url-do-repositorio>
 cd employee-table
 
 # Instale as dependências
-npm install
+yarn
 
 # Inicie a aplicação (API + Frontend)
-npm run dev
+yarn dev
 ```
 
 ## 📋 Scripts Disponíveis
 
 ```bash
-npm run dev          # Inicia API (porta 3001) + Frontend (porta 5173)
-npm run build        # Build para produção
-npm run preview      # Preview do build
-npm run test         # Executar testes
-npm run test:coverage # Testes com coverage
-npm run lint         # Verificar código (Biome)
-npm run lint:fix     # Corrigir código automaticamente
-npm run format       # Formatar código
-npm run validate     # Validar tudo (types + lint + tests)
-npm run clean        # Limpar cache e builds
+yarn dev          # Inicia API (porta 3001) + Frontend (porta 5173)
+yarn build        # Build para produção
+yarn preview      # Preview do build
+yarn test         # Executar testes
+yarn test:coverage # Testes com coverage
+yarn lint         # Verificar código (Biome)
+yarn lint:fix     # Corrigir código automaticamente
+yarn format       # Formatar código
+yarn validate     # Validar tudo (types + lint + tests)
+yarn clean        # Limpar cache e builds
 ```
 
 ## 🌐 URLs
@@ -78,13 +78,13 @@ npm run clean        # Limpar cache e builds
 
 ```bash
 # Executar todos os testes
-npm test
+yarn test
 
 # Testes com coverage
-npm run test:coverage
+yarn test:coverage
 
 # Interface gráfica dos testes
-npx vitest --ui
+yarn vitest --ui
 ```
 
 ## 🏗️ Arquitetura
