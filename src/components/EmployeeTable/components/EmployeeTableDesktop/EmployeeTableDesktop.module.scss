@@ -1,0 +1,26 @@
+.employee-table {
+  &__table {
+    border-collapse: collapse;
+    min-width: 600px;
+    width: 100%;
+  }
+
+  &__header {
+    background-color: $blue-primary;
+    box-shadow: $box-shadow-regular;
+    color: $white;
+    padding: $spacing-regular-16;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  &__cell {
+    border-bottom: 1px solid $gray-10;
+    padding: $spacing-regular-16;
+    vertical-align: middle;
+  }
+
+  &__row:hover {
+    background-color: $gray-05;
+  }
+}

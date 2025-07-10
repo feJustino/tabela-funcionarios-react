@@ -1,0 +1,72 @@
+.employee-card {
+  &--collapsed {
+    border-bottom: 1px solid $gray-10;
+  }
+
+  &:hover {
+    background-color: $gray-05;
+  }
+
+  &__photo {
+    padding: $spacing-regular-16;
+    text-align: center;
+    vertical-align: middle;
+    width: 80px;
+  }
+
+  &__name {
+    color: $black;
+    font-size: $font-size-regular-16;
+    font-weight: $weight-medium;
+    padding: $spacing-regular-16;
+    vertical-align: middle;
+  }
+
+  &__action {
+    text-align: center;
+    vertical-align: middle;
+    width: 100px;
+  }
+
+  &__toggle-btn {
+    background: $white;
+    border: none;
+    color: $blue-primary;
+    cursor: pointer;
+  }
+
+  &__btn-icon {
+    height: 30px;
+    stroke: $blue-primary;
+    width: 50px;
+  }
+
+  &__details-row {
+    background: $white;
+    border-bottom: 1px solid $gray-10;
+
+    &:hover {
+      background: $gray-05;
+    }
+
+    &--collapsed {
+      display: none;
+    }
+  }
+
+  &__details {
+    padding: 0 $spacing-regular-16;
+  }
+
+  &__detail {
+    border-bottom: 1px dashed $gray-10;
+    display: flex;
+    justify-content: space-between;
+    margin: $spacing-regular-16 0;
+    width: 100%;
+
+    strong {
+      font-weight: $weight-medium;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.app {
+  background-color: $gray-00;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  &__container {
+    margin: $spacing-regular-24 auto;
+    max-width: 1200px;
+    padding: 0 $spacing-regular-20;
+  }
+
+  &__container-header {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-regular-24;
+    margin-bottom: $spacing-regular-20;
+  }
+}

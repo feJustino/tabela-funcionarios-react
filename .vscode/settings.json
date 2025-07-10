@@ -1,0 +1,55 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "typescript.suggest.autoImports": true,
+
+  "emmet.includeLanguages": {
+    "typescript": "html",
+    "typescriptreact": "html"
+  },
+
+  "files.associations": {
+    "*.scss": "scss"
+  },
+
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss"],
+
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/coverage": true,
+    "**/.vite": true
+  },
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/coverage": true,
+    "**/.vite": true,
+    "**/package-lock.json": true
+  },
+
+  "vitest.enable": true,
+  "testing.automaticallyOpenPeekView": "never",
+  "git.ignoreLimitWarning": true
+}

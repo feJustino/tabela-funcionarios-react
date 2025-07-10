@@ -1,0 +1,40 @@
+{
+  "extends": ["stylelint-config-recommended-scss"],
+  "plugins": ["stylelint-order", "stylelint-scss"],
+  "rules": {
+    "order/properties-alphabetical-order": true,
+    "scss/at-import-partial-extension": null,
+    "scss/load-partial-extension": "never",
+    "scss/double-slash-comment-whitespace-inside": "always",
+    "color-function-notation": "modern",
+    "alpha-value-notation": "percentage",
+    "color-hex-length": "short",
+    "value-keyword-case": "lower",
+    "selector-class-pattern": null,
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["blockless-after-same-name-blockless", "first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "scss/at-rule-conditional-no-parentheses": true,
+    "scss/at-function-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "scss/at-mixin-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "scss/dollar-variable-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "scss/percent-placeholder-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$"
+  },
+  "ignoreFiles": [
+    "build/**/*",
+    "dist/**/*",
+    "node_modules/**/*",
+    "coverage/**/*"
+  ]
+}

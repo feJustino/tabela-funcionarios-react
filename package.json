@@ -1,0 +1,51 @@
+{
+  "name": "employee-table",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "web-vitals": "^5.0.3"
+  },
+  "scripts": {
+    "dev": "concurrently \"json-server --watch db.json --port 3001\" \"vite\"",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "validate": "tsc --noEmit && npm run lint && vitest run",
+    "clean": "rm -rf build dist node_modules/.vite coverage yarn.lock",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.1.1",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.0.12",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.0.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
+    "concurrently": "^9.2.0",
+    "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "json-server": "^1.0.0-beta.3",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.3",
+    "vitest": "^3.2.4",
+    "sass": "^1.89.2",
+    "stylelint": "^16.21.1",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-order": "^7.0.0",
+    "stylelint-scss": "^6.12.1",
+    "postcss": "^8.4.29",
+    "vite-plugin-svgr": "^4.3.0"
+  }
+}

@@ -1,0 +1,29 @@
+.employee-table--mobile {
+  background: $white;
+  border-radius: $spacing-little-08;
+  box-shadow: $box-shadow-medium;
+  overflow: hidden;
+
+  .mobile-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .dot {
+    background-color: $white;
+    border-radius: 50%;
+    display: block;
+    height: $spacing-little-08;
+    margin: 0 auto;
+    width: $spacing-little-08;
+  }
+
+  .mobile-header__cell {
+    background-color: $blue-primary;
+    color: $white;
+    font-weight: $weight-medium;
+    padding: $spacing-regular-16;
+    text-align: left;
+    text-transform: uppercase;
+  }
+}

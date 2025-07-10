@@ -1,0 +1,42 @@
+@use '../abstracts/variables' as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $gray-00;
+  color: $black;
+  font-family: $font-roboto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-helvetica;
+  line-height: 100%;
+  margin: 0;
+}
+
+h1 {
+  font-size: $font-size-regular-20;
+  font-weight: $weight-medium;
+}
+
+h2 {
+  font-size: $font-size-regular-16;
+  font-weight: $weight-medium;
+}
+
+h3 {
+  font-size: $font-size-regular-16;
+  font-weight: $weight-regular;
+}
