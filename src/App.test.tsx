@@ -1,8 +1,8 @@
-import { render, screen, waitFor } from '@/tests';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import App from './App';
-import { employeeService } from '@/services/employeeService';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMockEmployeeList } from '@/__mocks__/createMockEmployeeList';
+import { employeeService } from '@/services/employeeService';
+import { render, screen, waitFor } from '@/tests';
+import App from './App';
 
 vi.mock('./services/employeeService', () => ({
   employeeService: {
@@ -17,7 +17,10 @@ describe('App', () => {
 
   it('deve renderizar o estado de carregamento inicialmente', () => {
     vi.mocked(employeeService.getEmployees).mockImplementation(
-      () => new Promise(resolve => setTimeout(() => resolve(createMockEmployeeList(3)), 100))
+      () =>
+        new Promise((resolve) =>
+          setTimeout(() => resolve(createMockEmployeeList(3)), 100),
+        ),
     );
 
     render(<App />);
@@ -41,8 +44,11 @@ describe('App', () => {
   });
 
   it('deve renderizar o estado de erro quando a API falhar', async () => {
-    const errorMessage = 'Erro ao carregar funcionários. Verifique se o json-server está rodando.';
-    vi.mocked(employeeService.getEmployees).mockRejectedValue(new Error(errorMessage));
+    const errorMessage =
+      'Erro ao carregar funcionários. Verifique se o json-server está rodando.';
+    vi.mocked(employeeService.getEmployees).mockRejectedValue(
+      new Error(errorMessage),
+    );
 
     render(<App />);
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@/tests';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import EmployeeCard from './EmployeeCard';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMockEmployee } from '@/__mocks__/createMockEmployee';
+import { fireEvent, render, screen } from '@/tests';
+import EmployeeCard from './EmployeeCard';
 
 describe('EmployeeCard', () => {
   const mockEmployee = createMockEmployee({
@@ -21,14 +21,26 @@ describe('EmployeeCard', () => {
   });
 
   it('should render employee information correctly', () => {
-    render(<EmployeeCard employee={mockEmployee} isExpanded={false} onToggle={mockOnToggle} />);
+    render(
+      <EmployeeCard
+        employee={mockEmployee}
+        isExpanded={false}
+        onToggle={mockOnToggle}
+      />,
+    );
 
     expect(screen.getByText('João Silva')).toBeInTheDocument();
     expect(screen.getByText('Desenvolvedor Frontend')).toBeInTheDocument();
   });
 
   it('should call onToggle when clicked', () => {
-    render(<EmployeeCard employee={mockEmployee} isExpanded={false} onToggle={mockOnToggle} />);
+    render(
+      <EmployeeCard
+        employee={mockEmployee}
+        isExpanded={false}
+        onToggle={mockOnToggle}
+      />,
+    );
 
     const card = screen.getByRole('button');
     fireEvent.click(card);
@@ -38,7 +50,13 @@ describe('EmployeeCard', () => {
   });
 
   it('should show details when expanded', () => {
-    render(<EmployeeCard employee={mockEmployee} isExpanded={true} onToggle={mockOnToggle} />);
+    render(
+      <EmployeeCard
+        employee={mockEmployee}
+        isExpanded={true}
+        onToggle={mockOnToggle}
+      />,
+    );
 
     // A data pode estar sendo formatada com um dia a menos devido ao timezone, vamos buscar pelo padrão da data formatada
     expect(screen.getByText(/14\/01\/2023|15\/01\/2023/)).toBeInTheDocument();
@@ -46,16 +64,28 @@ describe('EmployeeCard', () => {
   });
 
   it('should hide details when collapsed', () => {
-    render(<EmployeeCard employee={mockEmployee} isExpanded={false} onToggle={mockOnToggle} />);
+    render(
+      <EmployeeCard
+        employee={mockEmployee}
+        isExpanded={false}
+        onToggle={mockOnToggle}
+      />,
+    );
 
     // Verificar que a linha de detalhes está com a classe --collapsed
-    const detailsRow = document.querySelector('[class*="details-row--collapsed"]');
+    const detailsRow = document.querySelector(
+      '[class*="details-row--collapsed"]',
+    );
     expect(detailsRow).toBeInTheDocument();
   });
 
   it('should render correct chevron icon based on expansion state', () => {
     const { rerender } = render(
-      <EmployeeCard employee={mockEmployee} isExpanded={false} onToggle={mockOnToggle} />
+      <EmployeeCard
+        employee={mockEmployee}
+        isExpanded={false}
+        onToggle={mockOnToggle}
+      />,
     );
 
     // When collapsed, should show chevron down
@@ -63,14 +93,26 @@ describe('EmployeeCard', () => {
     expect(screen.getByTestId('chevron-down-icon')).toBeInTheDocument();
 
     // When expanded, should show chevron up
-    rerender(<EmployeeCard employee={mockEmployee} isExpanded={true} onToggle={mockOnToggle} />);
+    rerender(
+      <EmployeeCard
+        employee={mockEmployee}
+        isExpanded={true}
+        onToggle={mockOnToggle}
+      />,
+    );
 
     expect(screen.getByRole('button')).toBeInTheDocument();
     expect(screen.getByTestId('chevron-up-icon')).toBeInTheDocument();
   });
 
   it('should render employee image', () => {
-    render(<EmployeeCard employee={mockEmployee} isExpanded={false} onToggle={mockOnToggle} />);
+    render(
+      <EmployeeCard
+        employee={mockEmployee}
+        isExpanded={false}
+        onToggle={mockOnToggle}
+      />,
+    );
 
     const image = screen.getByRole('img');
     expect(image).toBeInTheDocument();
@@ -79,17 +121,31 @@ describe('EmployeeCard', () => {
 
   it('should apply correct CSS classes based on expansion state', () => {
     const { container, rerender } = render(
-      <EmployeeCard employee={mockEmployee} isExpanded={false} onToggle={mockOnToggle} />
+      <EmployeeCard
+        employee={mockEmployee}
+        isExpanded={false}
+        onToggle={mockOnToggle}
+      />,
     );
 
     // Check collapsed state classes (verificar que contém a classe CSS gerada)
-    expect(container.querySelector('[class*="employee-card--collapsed"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[class*="employee-card--collapsed"]'),
+    ).toBeInTheDocument();
 
     // Check expanded state classes
-    rerender(<EmployeeCard employee={mockEmployee} isExpanded={true} onToggle={mockOnToggle} />);
+    rerender(
+      <EmployeeCard
+        employee={mockEmployee}
+        isExpanded={true}
+        onToggle={mockOnToggle}
+      />,
+    );
 
     expect(
-      container.querySelector('[class*="employee-card"]:not([class*="--collapsed"])')
+      container.querySelector(
+        '[class*="employee-card"]:not([class*="--collapsed"])',
+      ),
     ).toBeInTheDocument();
   });
 
@@ -100,7 +156,11 @@ describe('EmployeeCard', () => {
     });
 
     render(
-      <EmployeeCard employee={employeeWithoutImage} isExpanded={false} onToggle={mockOnToggle} />
+      <EmployeeCard
+        employee={employeeWithoutImage}
+        isExpanded={false}
+        onToggle={mockOnToggle}
+      />,
     );
 
     // Should still render the component
@@ -111,7 +171,11 @@ describe('EmployeeCard', () => {
     const defaultMockEmployee = createMockEmployee(); // Usando valores padrão da mock
 
     render(
-      <EmployeeCard employee={defaultMockEmployee} isExpanded={true} onToggle={mockOnToggle} />
+      <EmployeeCard
+        employee={defaultMockEmployee}
+        isExpanded={true}
+        onToggle={mockOnToggle}
+      />,
     );
 
     // Verificar se renderiza corretamente com dados padrão da mock
@@ -131,7 +195,13 @@ describe('EmployeeCard', () => {
       image: 'https://example.com/teste.jpg',
     });
 
-    render(<EmployeeCard employee={customEmployee} isExpanded={true} onToggle={mockOnToggle} />);
+    render(
+      <EmployeeCard
+        employee={customEmployee}
+        isExpanded={true}
+        onToggle={mockOnToggle}
+      />,
+    );
 
     expect(screen.getByText('Teste Employee')).toBeInTheDocument();
     expect(screen.getByText('Teste Job')).toBeInTheDocument();

@@ -5,7 +5,9 @@ interface NoResultsProps {
   message?: string;
 }
 
-const NoResults: React.FC<NoResultsProps> = ({ message = 'Nenhum funcionário encontrado.' }) => {
+const NoResults: React.FC<NoResultsProps> = ({
+  message = 'Nenhum funcionário encontrado.',
+}) => {
   return <div className={styles['no-results']}>{message}</div>;
 };
 

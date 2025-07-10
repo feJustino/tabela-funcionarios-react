@@ -1,6 +1,6 @@
-import { describe, test, expect } from 'vitest';
-import { formatDate, formatPhone } from './formatters';
+import { describe, expect, test } from 'vitest';
 import { createMockEmployee } from '@/__mocks__/createMockEmployee';
+import { formatDate, formatPhone } from './formatters';
 
 describe('formatters', () => {
   describe('formatDate', () => {

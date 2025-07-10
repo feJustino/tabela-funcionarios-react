@@ -8,11 +8,15 @@ interface EmployeeTableMobileProps {
   employees: Employee[];
 }
 
-const EmployeeTableMobile: React.FC<EmployeeTableMobileProps> = ({ employees }) => {
-  const [expandedEmployees, setExpandedEmployees] = useState<Set<number>>(new Set());
+const EmployeeTableMobile: React.FC<EmployeeTableMobileProps> = ({
+  employees,
+}) => {
+  const [expandedEmployees, setExpandedEmployees] = useState<Set<number>>(
+    new Set(),
+  );
 
   const toggleEmployeeDetails = (employeeId: number) => {
-    setExpandedEmployees(prev => {
+    setExpandedEmployees((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(employeeId)) {
         newSet.delete(employeeId);
@@ -39,7 +43,7 @@ const EmployeeTableMobile: React.FC<EmployeeTableMobileProps> = ({ employees }) 
           </tr>
         </thead>
         <tbody>
-          {employees.map(employee => (
+          {employees.map((employee) => (
             <EmployeeCard
               key={employee.id}
               employee={employee}

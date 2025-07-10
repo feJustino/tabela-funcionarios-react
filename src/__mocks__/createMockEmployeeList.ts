@@ -38,13 +38,20 @@ const EMPLOYEE_TEMPLATES = [
   },
 ];
 
-const generateUniqueEmployee = (template: (typeof EMPLOYEE_TEMPLATES)[0], index: number) => {
+const generateUniqueEmployee = (
+  template: (typeof EMPLOYEE_TEMPLATES)[0],
+  index: number,
+) => {
   const iteration = Math.floor(index / EMPLOYEE_TEMPLATES.length);
 
-  const name = iteration > 0 ? `${template.name} ${iteration + 1}` : template.name;
+  const name =
+    iteration > 0 ? `${template.name} ${iteration + 1}` : template.name;
 
   const phoneNumber = String(index + 1).padStart(4, '0');
-  const phone = template.phone.replace(/\d{4}-\d{4}/, `${phoneNumber}-${phoneNumber}`);
+  const phone = template.phone.replace(
+    /\d{4}-\d{4}/,
+    `${phoneNumber}-${phoneNumber}`,
+  );
 
   return createMockEmployee({
     ...template,

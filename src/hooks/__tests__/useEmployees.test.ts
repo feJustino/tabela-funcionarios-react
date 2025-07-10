@@ -1,7 +1,7 @@
-import { createMockEmployeeList } from '@/__mocks__/createMockEmployeeList';
-import { employeeService } from '@/services/employeeService';
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { createMockEmployeeList } from '@/__mocks__/createMockEmployeeList';
+import { employeeService } from '@/services/employeeService';
 import { useEmployees } from '../useEmployees';
 
 vi.mock('@/services/employeeService', () => ({
@@ -50,7 +50,9 @@ describe('useEmployees', () => {
 
   it('deve tratar erro ao buscar funcionários', async () => {
     const errorMessage = 'Network error';
-    vi.mocked(employeeService.getEmployees).mockRejectedValue(new Error(errorMessage));
+    vi.mocked(employeeService.getEmployees).mockRejectedValue(
+      new Error(errorMessage),
+    );
 
     const { result } = renderHook(() => useEmployees());
 
@@ -60,7 +62,7 @@ describe('useEmployees', () => {
 
     expect(result.current.employees).toEqual([]);
     expect(result.current.error).toBe(
-      'Erro ao carregar funcionários. Verifique se o json-server está rodando.'
+      'Erro ao carregar funcionários. Verifique se o json-server está rodando.',
     );
   });
 

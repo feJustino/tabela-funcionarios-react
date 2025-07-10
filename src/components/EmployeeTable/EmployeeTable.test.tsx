@@ -1,6 +1,6 @@
-import { createMockEmployeeList } from '@/__mocks__/createMockEmployeeList';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import { createMockEmployeeList } from '@/__mocks__/createMockEmployeeList';
 import type { Employee } from '../../types/Employee';
 import EmployeeTable from './EmployeeTable';
 
@@ -13,12 +13,16 @@ vi.mock('../../hooks/useIsMobile', () => ({
 // Mock dos componentes filhos
 vi.mock('./components', () => ({
   EmployeeTableDesktop: ({ employees }: { employees: Employee[] }) => (
-    <div data-testid='desktop-table'>Desktop: {employees.length} funcionários</div>
+    <div data-testid="desktop-table">
+      Desktop: {employees.length} funcionários
+    </div>
   ),
   EmployeeTableMobile: ({ employees }: { employees: Employee[] }) => (
-    <div data-testid='mobile-table'>Mobile: {employees.length} funcionários</div>
+    <div data-testid="mobile-table">
+      Mobile: {employees.length} funcionários
+    </div>
   ),
-  NoResults: () => <div data-testid='no-results'>Sem resultados</div>,
+  NoResults: () => <div data-testid="no-results">Sem resultados</div>,
 }));
 
 describe('EmployeeTable', () => {

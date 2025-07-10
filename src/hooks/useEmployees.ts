@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import type { Employee } from '../types/Employee';
+import { useEffect, useState } from 'react';
 import { employeeService } from '../services/employeeService';
+import type { Employee } from '../types/Employee';
 
 export const useEmployees = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -18,7 +18,9 @@ export const useEmployees = () => {
         setFilteredEmployees(data);
         setError(null);
       } catch (err) {
-        setError('Erro ao carregar funcionários. Verifique se o json-server está rodando.');
+        setError(
+          'Erro ao carregar funcionários. Verifique se o json-server está rodando.',
+        );
         console.error('Error fetching employees:', err);
       } finally {
         setLoading(false);
@@ -35,10 +37,10 @@ export const useEmployees = () => {
     }
 
     const filtered = employees.filter(
-      employee =>
+      (employee) =>
         employee.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         employee.job.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        employee.phone.includes(searchTerm)
+        employee.phone.includes(searchTerm),
     );
 
     setFilteredEmployees(filtered);

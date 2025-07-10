@@ -1,5 +1,9 @@
-import { mockFetchEmployees, mockFetchResponse, resetFetchMock } from '@/__mocks__/fetchMock';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import {
+  mockFetchEmployees,
+  mockFetchResponse,
+  resetFetchMock,
+} from '@/__mocks__/fetchMock';
 import { employeeService } from '../employeeService';
 
 describe('employeeService', () => {
@@ -25,7 +29,9 @@ describe('employeeService', () => {
     it('deve lançar erro quando response não é ok', async () => {
       vi.mocked(fetch).mockResolvedValue(mockFetchResponse({}, 404));
 
-      await expect(employeeService.getEmployees()).rejects.toThrow('Failed to fetch employees');
+      await expect(employeeService.getEmployees()).rejects.toThrow(
+        'Failed to fetch employees',
+      );
       expect(fetch).toHaveBeenCalledWith('http://localhost:3001/employees');
     });
   });

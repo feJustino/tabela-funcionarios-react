@@ -2,7 +2,11 @@ import type React from 'react';
 import { useMemo } from 'react';
 import useIsMobile from '../../hooks/useIsMobile';
 import type { Employee } from '../../types/Employee';
-import { EmployeeTableDesktop, EmployeeTableMobile, NoResults } from './components';
+import {
+  EmployeeTableDesktop,
+  EmployeeTableMobile,
+  NoResults,
+} from './components';
 import styles from './EmployeeTable.module.scss';
 
 interface EmployeeTableProps {
@@ -14,7 +18,7 @@ const EmployeeTable: React.FC<EmployeeTableProps> = ({ employees }) => {
 
   const TableComponent = useMemo(
     () => (isMobile ? EmployeeTableMobile : EmployeeTableDesktop),
-    [isMobile]
+    [isMobile],
   );
 
   return (

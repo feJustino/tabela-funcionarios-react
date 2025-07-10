@@ -1,18 +1,18 @@
 import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
-import EmployeeTableDesktop from './EmployeeTableDesktop';
+import { describe, expect, it, vi } from 'vitest';
 import { createMockEmployeeList } from '@/__mocks__/createMockEmployeeList';
+import EmployeeTableDesktop from './EmployeeTableDesktop';
 
 // Mock dos formatters
 vi.mock('@/utils/formatters', () => ({
-  formatDate: vi.fn(date => `Formatted: ${date}`),
-  formatPhone: vi.fn(phone => `Formatted: ${phone}`),
+  formatDate: vi.fn((date) => `Formatted: ${date}`),
+  formatPhone: vi.fn((phone) => `Formatted: ${phone}`),
 }));
 
 // Mock do EmployeeImage
 vi.mock('../EmployeeImage/EmployeeImage', () => ({
   default: ({ src, alt }: { src: string; alt: string }) => (
-    <img src={src} alt={alt} data-testid='employee-image' />
+    <img src={src} alt={alt} data-testid="employee-image" />
   ),
 }));
 

@@ -1,6 +1,6 @@
-import { createMockEmployeeList } from '@/__mocks__/createMockEmployeeList';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import { createMockEmployeeList } from '@/__mocks__/createMockEmployeeList';
 import type { Employee } from '../../../../types/Employee';
 import EmployeeTableMobile from './EmployeeTableMobile';
 
@@ -19,7 +19,10 @@ vi.mock('../EmployeeCard/EmployeeCard', () => ({
       <td>{employee.name}</td>
       <td>{isExpanded ? 'Expandido' : 'Recolhido'}</td>
       <td>
-        <button onClick={() => onToggle(employee.id)} data-testid={`toggle-${employee.id}`}>
+        <button
+          onClick={() => onToggle(employee.id)}
+          data-testid={`toggle-${employee.id}`}
+        >
           Toggle
         </button>
       </td>

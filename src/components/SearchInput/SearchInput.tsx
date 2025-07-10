@@ -1,5 +1,5 @@
-import SearchIcon from '@/assets/icons/search.svg';
 import type React from 'react';
+import SearchIcon from '@/assets/icons/search.svg';
 import styles from './SearchInput.module.scss';
 
 interface SearchInputProps {
@@ -16,13 +16,17 @@ const SearchInput: React.FC<SearchInputProps> = ({
   return (
     <div className={styles['search']}>
       <input
-        type='text'
+        type="text"
         className={styles['search__input']}
         value={value}
-        onChange={e => onChange(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
       />
-      <img src={SearchIcon} className={styles['search__icon']} alt='Search icon' />
+      <img
+        src={SearchIcon}
+        className={styles['search__icon']}
+        alt="Search icon"
+      />
     </div>
   );
 };

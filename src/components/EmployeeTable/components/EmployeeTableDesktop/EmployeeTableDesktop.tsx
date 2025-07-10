@@ -8,7 +8,9 @@ interface EmployeeTableDesktopProps {
   employees: Employee[];
 }
 
-const EmployeeTableDesktop: React.FC<EmployeeTableDesktopProps> = ({ employees }) => {
+const EmployeeTableDesktop: React.FC<EmployeeTableDesktopProps> = ({
+  employees,
+}) => {
   return (
     <table className={styles['employee-table__table']}>
       <thead>
@@ -31,12 +33,15 @@ const EmployeeTableDesktop: React.FC<EmployeeTableDesktopProps> = ({ employees }
         </tr>
       </thead>
       <tbody>
-        {employees.map(employee => (
+        {employees.map((employee) => (
           <tr key={employee.id} className={styles['employee-table__row']}>
             <td
               className={`${styles['employee-table__cell']} ${styles['employee-table__cell--image']}`}
             >
-              <EmployeeImage src={employee.image} alt={`Foto de ${employee.name}`} />
+              <EmployeeImage
+                src={employee.image}
+                alt={`Foto de ${employee.name}`}
+              />
             </td>
             <td
               className={`${styles['employee-table__cell']} ${styles['employee-table__cell--name']}`}
