@@ -33,10 +33,10 @@ function App() {
   }
 
   return (
-    <div className={styles['app']}>
+    <div className={styles.app}>
       <Header />
 
-      <div className={styles['app__container']}>
+      <div className={styles.app__container}>
         <div className={styles['app__container-header']}>
           <h1>Funcionários</h1>
 

@@ -20,6 +20,7 @@ vi.mock('../EmployeeCard/EmployeeCard', () => ({
       <td>{isExpanded ? 'Expandido' : 'Recolhido'}</td>
       <td>
         <button
+          type="button"
           onClick={() => onToggle(employee.id)}
           data-testid={`toggle-${employee.id}`}
         >

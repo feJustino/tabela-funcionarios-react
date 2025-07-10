@@ -38,7 +38,7 @@ const EmployeeTableMobile: React.FC<EmployeeTableMobileProps> = ({
               <h2>NOME</h2>
             </th>
             <th className={`${styles['mobile-header__cell']}`}>
-              <span className={styles['dot']} />
+              <span className={styles.dot} />
             </th>
           </tr>
         </thead>

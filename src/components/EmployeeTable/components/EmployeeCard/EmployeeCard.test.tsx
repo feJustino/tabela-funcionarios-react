@@ -1,4 +1,3 @@
-import React from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMockEmployee } from '@/__mocks__/createMockEmployee';
 import { fireEvent, render, screen } from '@/tests';

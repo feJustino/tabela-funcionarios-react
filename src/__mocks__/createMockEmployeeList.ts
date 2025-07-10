@@ -65,7 +65,13 @@ export const createMockEmployeeList = (count = 3) => {
   if (count <= 0) return [];
 
   return Array.from({ length: count }, (_, index) => {
-    const template = EMPLOYEE_TEMPLATES[index % EMPLOYEE_TEMPLATES.length];
-    return generateUniqueEmployee(template!, index);
+    const templateIndex = index % EMPLOYEE_TEMPLATES.length;
+    const template = EMPLOYEE_TEMPLATES[templateIndex];
+    if (!template) {
+      throw new Error(
+        `Template not found at index ${index % EMPLOYEE_TEMPLATES.length}`,
+      );
+    }
+    return generateUniqueEmployee(template, index);
   });
 };
